@@ -2,28 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Core variables */
-@import 'base/vars';
+@import "base/vars";
 
 /* CSS Reset */
-@import 'base/reset';
+@import "base/reset";
 
 /* CSS print */
-@import 'base/print';
+@import "base/print";
 
 /* Fonts */
-@import 'base/fonts';
+@import "base/fonts";
 
 /* Mixins, helpers and functions */
-@import 'base/mixins';
+@import "base/mixins";
 
 /* Vendor */
 
 /* Components */
 
 /* Browser specific styles */
-@import 'dirty/hacks';
+@import "dirty/hacks";
 
 /* Demo Page styles */
-@import 'demo';
+@import "common";
+@import "home";

@@ -1,0 +1,47 @@
+.home2 {
+    @apply pt-[4rem] bg-[#ededeb];
+    box-shadow: rgb(255, 255, 255) 0px -3rem 0px inset;
+    &__wrap {
+        @apply flex flex-col lg:flex-row;
+    }
+    &__left {
+        @apply mb-[2rem] lg:mb-0;
+        @apply flex flex-col md:block items-center;
+    }
+    &__left,
+    &__right {
+        @apply w-full lg:w-1/2;
+        img {
+            @apply rounded-[10px];
+        }
+    }
+    &__btns {
+        @apply flex;
+        .btn {
+            &:not(:first-child) {
+                @apply ml-[0.5em];
+            }
+        }
+    }
+    &__title {
+        @apply text-[2rem] font-bold;
+        @apply mb-[1rem];
+    }
+    &__sub-title {
+        @apply text-base mb-[1rem];
+    }
+}
+
+.home3 {
+    @apply my-[3rem];
+    &__wrap {
+        // @apply text-xl;
+    }
+    &__title {
+        @apply text-[2rem] font-bold;
+        @apply mb-[2rem] text-center lg:text-left;
+    }
+    &__logos {
+        @apply flex flex-wrap gap-x-[5rem] gap-y-[1rem] justify-center items-center;
+    }
+}

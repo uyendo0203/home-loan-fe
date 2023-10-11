@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>{{page_title}}</title>
-    <meta name="description" content="xxxxx">
-    <meta name="keywords" content="xxxx">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="xxxxx">
-  </head>
-  <body>
-     <main class="wapper-main">
-        {% include "./header.twig" %}
+    <head>
+        <meta charset="UTF-8">
+        <title>{{page_title}}</title>
+        <meta name="description" content="xxxxx">
+        <meta name="keywords" content="xxxx">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="xxxxx">
+        <link rel="stylesheet" type="text/css" href="libs/swiper/swiper-bundle.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main class="wapper-main">
+            {% include "./header.twig" %}
         {% block content %}{% endblock %}
-        {% include "./footer.twig" %}
-    </main>
-  </body>
+        {# {% include "./footer.twig" %} #}
+        </main>
+    </body>
+    <script src="libs/swiper/swiper-bundle.min.js"></script>
 </html>
