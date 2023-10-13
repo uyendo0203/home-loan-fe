@@ -20,12 +20,10 @@ module.exports = {
       team: '3 / 4',
     },
     colors: {
-      "tmrw-orange": "#FF5100",
-      "tmrw-light-blue": "#00E5E5",
-      "tmrw-light-orange": "#FF5100",
       "black": "#000",
       "white": "#fff",
-      "tmrw-icream": "#FCF5E9",
+      "yellow": "#fdbf0f",
+      "yellow-hover": "#e0a704",
     },
     fontFamily: {
       'Montserrat': ["Montserrat", "sans-serif"],

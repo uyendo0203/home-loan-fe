@@ -1,0 +1,327 @@
+.refinance {
+  @apply relative min-h-[90vh] overflow-hidden;
+  @apply py-[4rem];
+  &:before {
+    content: " ";
+    background-color: #f8c357;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateZ(-1px) scale(1.6);
+    background-size: 100%;
+    z-index: -1;
+    background-image: url(https://dav3uwijswi8g.cloudfront.net/become/landing_page/img/lines.svg?v=2.2);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+  }
+  &__wrap {
+    @apply text-center;
+  }
+}
+
+// .step {
+//   @apply flex justify-center;
+//   &__item {
+//     @apply mx-[5px] rounded-[50%];
+//     @apply text-[1.2rem] text-white;
+//     padding: 4px 5px;
+//     text-indent: inherit;
+//     border: 1px solid #fff;
+//     @apply w-[50px] h-[50px];
+//     @apply flex items-center justify-center;
+//     &.active {
+//       background: #fff;
+//       @apply text-yellow;
+//     }
+//     svg {
+//       @apply max-w-[70%];
+//     }
+//   }
+// }
+
+.content-step {
+  @apply my-[2rem];
+  @apply flex;
+}
+.content-item {
+  @apply my-[2rem];
+  max-width: 560px;
+  width: 100%;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 6px 21px rgba(41, 7, 89, 0.16);
+  display: block;
+  margin: auto;
+  padding: 30px 50px;
+}
+
+.checkbox-item {
+  @apply mb-[1rem] block min-h-[1.5rem] pl-[1.5rem];
+  @apply text-left;
+}
+.checkbox-item-label {
+  @apply inline-block pl-[0.15rem] hover:cursor-pointer;
+}
+.checkbox-item-input {
+  @apply border-yellow relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-yellow  checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white;
+}
+
+/*form styles*/
+#msform {
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  position: relative;
+  fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    /*stacking fieldsets above each other*/
+    position: absolute;
+  }
+  fieldset:not(:first-of-type) {
+    display: none;
+  }
+  /*inputs*/
+  input,
+  textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    // margin-bottom: 10px;
+    // width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2c3e50;
+    font-size: 13px;
+  }
+  /*buttons*/
+  .action-button {
+    @apply bg-yellow hover:bg-yellow-hover;
+    width: 100px;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    margin-top: 30px;
+  }
+  .action-button:hover,
+  .action-button:focus {
+    box-shadow:
+      0 0 0 2px white,
+      0 0 0 3px #fff;
+  }
+}
+
+/*headings*/
+.fs-title {
+  @apply uppercase text-[1.2rem] font-bold mb-[2rem];
+  color: #2c3e50;
+}
+/*progressbar*/
+#progressbar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  /*CSS counters to number the steps*/
+  counter-reset: step;
+  display: flex;
+  justify-content: center;
+  span {
+    @apply hidden;
+  }
+  li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 12%;
+    float: left;
+    position: relative;
+    &:before {
+      content: counter(step);
+      counter-increment: step;
+      width: 35px;
+      line-height: 35px;
+      display: block;
+      font-size: 16px;
+      color: #333;
+      background: white;
+      border-radius: 50%;
+      margin: 0 auto 5px auto;
+    }
+    &:after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background: white;
+      position: absolute;
+      left: -50%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1; /*put it behind the numbers*/
+    }
+    &:first-child:after {
+      /*connector not needed before the first step*/
+      content: none;
+    }
+    &.active:before,
+    &.active:after {
+      background-color: #e3ab0c;
+      color: #fff;
+    }
+  }
+}
+
+.step {
+  .checkbox {
+    @apply flex items-center;
+    &:not(:last-child) {
+      // @apply mb-[10px];
+    }
+    input {
+      @apply w-[25px] mb-0 #{!important};
+    }
+  }
+}
+.step-2 {
+  .checkbox {
+    @apply mb-0 #{!important};
+  }
+}
+.step-3,
+.step-4 {
+  input,
+  textarea {
+    @apply w-full;
+  }
+}
+
+// Base Colors
+$shade-10: #2c3e50 !default;
+$shade-1: #d7dcdf !default;
+$shade-0: #fff !default;
+$teal: #1abc9c !default;
+// Range Slider
+$range-width: 100% !default;
+
+$range-handle-color: $shade-10 !default;
+$range-handle-color-hover: $teal !default;
+$range-handle-size: 20px !default;
+
+$range-track-color: $shade-1 !default;
+$range-track-height: 10px !default;
+
+$range-label-color: $shade-10 !default;
+$range-label-width: 60px !default;
+
+.range-slider {
+  width: $range-width;
+  display: flex;
+  align-items: center;
+}
+
+.range-slider__range {
+  -webkit-appearance: none;
+  width: calc(100% - (#{$range-label-width + 13px}));
+  height: $range-track-height;
+  border-radius: 5px;
+  background: $range-track-color;
+  outline: none;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  // Range Handle
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
+
+  &:active::-webkit-slider-thumb {
+    background: $range-handle-color-hover;
+  }
+
+  &::-moz-range-thumb {
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border: 0;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background 0.15s ease-in-out;
+
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
+
+  &:active::-moz-range-thumb {
+    background: $range-handle-color-hover;
+  }
+
+  // Focus state
+  &:focus {
+    &::-webkit-slider-thumb {
+      box-shadow:
+        0 0 0 3px $shade-0,
+        0 0 0 6px $teal;
+    }
+  }
+}
+
+// Range Label
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  // width: $range-label-width;
+  width: auto;
+  color: $shade-0;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: $range-label-color;
+  padding: 5px 10px;
+  margin-left: 8px;
+
+  &:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid $range-label-color;
+    border-bottom: 7px solid transparent;
+    content: "";
+  }
+}
+
+// Firefox Overrides
+::-moz-range-track {
+  background: $range-track-color;
+  border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0;
+}

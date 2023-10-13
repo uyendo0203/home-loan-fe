@@ -1,0 +1,310 @@
+<div class="refinance">
+    <div class="container">
+        <div class="refinance__wrap">
+            {#
+            <div class="step">
+                <div class="step__item completed">
+                    <svg
+                        class="svg-inline--fa fa-check fa-w-16 fa-fw"
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fa"
+                        data-icon="check"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        data-fa-i2svg=""
+                    >
+                        <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+                    </svg>
+                </div>
+                <div class="step__item editing active">2</div>
+                <div class="step__item">3</div>
+                <div class="step__item">4</div>
+                <div class="step__item">5</div>
+            </div>
+            <div class="content-step">
+                <div class="content-item">
+                    <fieldset>
+                        <!--Default checkbox-->
+                        <div class="checkbox-item ">
+                            <input
+                                class="checkbox-item-input"
+                                type="checkbox"
+                                value=""
+                                id="checkboxDefault"
+                            >
+                            <label class="checkbox-item-label" for="checkboxDefault">
+                                Lower interest rate and cost
+                            </label>
+                        </div>
+                        <!--Default checked checkbox-->
+                        <div class="checkbox-item">
+                            <input
+                                class="checkbox-item-input"
+                                type="checkbox"
+                                value="1"
+                                id="checkboxChecked1"
+                                checked
+                            >
+                            <label class="checkbox-item-label" for="checkboxChecked1">
+                                Checked checkbox
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input
+                                class="checkbox-item-input"
+                                type="checkbox"
+                                value="2"
+                                id="checkboxChecked2"
+                                checked
+                            >
+                            <label class="checkbox-item-label" for="checkboxChecked2">
+                                Some cash release
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input
+                                class="checkbox-item-input"
+                                type="checkbox"
+                                value="3"
+                                id="checkboxChecked3"
+                                checked
+                            >
+                            <label class="checkbox-item-label" for="checkboxChecked3">
+                                minimise repayment/month
+                            </label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input
+                                class="checkbox-item-input"
+                                type="checkbox"
+                                value="4"
+                                id="checkboxChecked4"
+                                checked
+                            >
+                            <label class="checkbox-item-label" for="checkboxChecked4">
+                                Other Loans to be closed/paid out
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="content-item">2</div>
+                <div class="content-item">3</div>
+                <div class="content-item">4</div>
+                <div class="content-item">5</div>
+            </div>
+            #}
+            <form id="msform">
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li class="active">
+                        <span>Account Setup</span>
+                    </li>
+                    <li>
+                        <span>Social Profiles</span>
+                    </li>
+                    <li>
+                        <span>Personal Details</span>
+                    </li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset class="step step-1">
+                    <h2 class="fs-title">Purpose of refinancing</h2>
+                    {#
+                    <h3 class="fs-subtitle">This is step 1</h3>
+                    #}
+                    <label class="checkbox mb-[10px]">
+                        <input type="checkbox" name="checkbox1">
+                        Lower interest rate and cost
+                    </label>
+                    <label class="checkbox mb-[10px]">
+                        <input type="checkbox" name="checkbox2" id="radio2">
+                        Some cash release
+                    </label>
+                    <label class="checkbox mb-[10px]">
+                        <input type="checkbox" name="checkbox3" id="radio3">
+                        minimise repayment/month
+                    </label>
+                    <label class="checkbox mb-[10px]">
+                        <input type="checkbox" name="checkbox4" id="radio4">
+                        Other Loans to be closed/paid out
+                    </label>
+                    <input
+                        type="button"
+                        name="next"
+                        class="next action-button"
+                        value="Next"
+                    >
+                </fieldset>
+                <fieldset class="step step-2 active">
+                    {#
+                    <h2 class="fs-title">Create your account</h2>
+                    #}
+                    <div class="text-left">
+                        <strong class="mb-[7px] block">Loan purpose</strong>
+                        <div class="flex">
+                            <label class="checkbox mr-3">
+                                <input type="checkbox" name="checkbox5">
+                                Owner Occupied
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="checkbox5" id="radio5">
+                                Investment
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-[15px]">
+                        <strong class="mb-[7px] block text-left">Current Loan amount</strong>
+                        <div class="range-slider">
+                            <input
+                                class="range-slider__range"
+                                type="range"
+                                value="100000"
+                                min="100000"
+                                max="2000000"
+                            >
+                            <span class="range-slider__value">0</span>
+                        </div>
+                    </div>
+                    <div class="mt-[15px]">
+                        <strong class="mb-[7px] block text-left">Current interest rate</strong>
+                        <div class="range-slider">
+                            <input
+                                class="range-slider__range percent"
+                                type="range"
+                                value="2"
+                                min="2"
+                                max="8"
+                            >
+                            <span class="range-slider__value">0</span>
+                        </div>
+                    </div>
+                    <div class="mt-[15px]">
+                        <strong class="mb-[7px] block text-left">Estimate value of property</strong>
+                        <div class="range-slider">
+                            <input
+                                class="range-slider__range"
+                                type="range"
+                                value="300000"
+                                min="300000"
+                                max="3000000"
+                            >
+                            <span class="range-slider__value">0</span>
+                        </div>
+                    </div>
+                    <div class="mt-[15px]">
+                        <strong class="mb-[7px] block text-left">Is there any other Borrower?</strong>
+                        <div class="flex">
+                            <div class="flex items-center mr-3">
+                                <input
+                                    id="default-radio-1"
+                                    type="radio"
+                                    value=""
+                                    name="default-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                >
+                                <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input
+                                    checked
+                                    id="default-radio-2"
+                                    type="radio"
+                                    value=""
+                                    name="default-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                >
+                                <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <input
+                        type="button"
+                        name="previous"
+                        class="previous action-button"
+                        value="Previous"
+                    >
+                    <input
+                        type="button"
+                        name="next"
+                        class="next action-button"
+                        value="Next"
+                    >
+                </fieldset>
+                <fieldset class="step step-3">
+                    <h2 class="fs-title">Borrower</h2>
+                    {#
+                    <h3 class="fs-subtitle">This is step 1</h3>
+                    #}
+                    <input type="text" name="email" placeholder="Email">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="password" name="cpass" placeholder="Confirm Password">
+                    <input
+                        type="button"
+                        name="previous"
+                        class="previous action-button"
+                        value="Previous"
+                    >
+                    <input
+                        type="button"
+                        name="next"
+                        class="next action-button"
+                        value="Next"
+                    >
+                </fieldset>
+                <fieldset class="step step-4">
+                    <h2 class="fs-title">Contact Info</h2>
+                    {#
+                    <h3 class="fs-subtitle">We will never sell it</h3>
+                    #}
+                    <input
+                        class="mb-[10px]"
+                        type="text"
+                        name="fname"
+                        placeholder="Full Name"
+                    >
+                    <input
+                        class="mb-[10px]"
+                        type="text"
+                        name="lname"
+                        placeholder="Email"
+                    >
+                    <input
+                        class="mb-[10px]"
+                        type="text"
+                        name="phone"
+                        placeholder="Phone"
+                    >
+                    <div class="mt-[10px]">
+                        <strong class="mb-[7px] block text-left">Best time to contact</strong>
+                        <div class="flex">
+                            <label class="checkbox mb-0 mr-3">
+                                <input type="checkbox" name="checkbox5">
+                                Working hours
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="checkbox5" id="radio5">
+                                After hours
+                            </label>
+                        </div>
+                    </div>
+                    <input
+                        type="button"
+                        name="previous"
+                        class="previous action-button"
+                        value="Previous"
+                    >
+                    <input
+                        type="submit"
+                        name="submit"
+                        class="submit action-button"
+                        value="Submit"
+                    >
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

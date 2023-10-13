@@ -1,0 +1,30 @@
+.header {
+  @apply my-[0.5rem];
+  &__wrap {
+    @apply flex items-center justify-between;
+  }
+  .logo {
+    @apply max-w-[8rem];
+  }
+  .nav {
+    &__ul {
+      @apply flex;
+    }
+    &__li {
+      @apply mx-[1.5rem];
+    }
+    &__a {
+      @apply relative pb-[5px] font-medium;
+      &:before {
+        content: "";
+        transition: all 0.2s ease;
+        @apply absolute w-0 h-[2px] bg-yellow bottom-0;
+      }
+      &:hover {
+        &:before {
+          @apply w-full;
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,14 @@
 
-{% set page_title = 'Home Loan' %}
+{% set page_title = 'Home | talenthomeloans' %}
 {% extends "../components/base.twig" %}
 
+ {# {% include "../components/header.twig" %} #}
 {% block content %}
 <div class="wrapper-home">
   {% include "../components/home/home1.twig" %}
   {% include "../components/home/home2.twig" %}
   {% include "../components/home/home3.twig" %}
+  {% include "../components/home/home4.twig" %}
+  {% include "../components/home/home5.twig" %}
 </div>
 {% endblock %}

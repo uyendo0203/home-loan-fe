@@ -8,7 +8,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 
 const environment = require('./configuration/environment');
 const environment_pages = require('./configuration/environment');
@@ -36,19 +38,18 @@ module.exports = {
     path: environment.paths.output,
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.twig$/,
         use: [
-            "raw-loader",
-            {
-                loader: "twig-html-loader",
-                options: {
-                    data: {},
-                },
+          "raw-loader",
+          {
+            loader: "twig-html-loader",
+            options: {
+              data: {},
             },
+          },
         ],
-    },
+      },
       {
         test: /\.((c|sa|sc)ss)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
@@ -94,19 +95,23 @@ module.exports = {
             // Lossless optimization with custom option
             // Feel free to experiment with options for better result for you
             plugins: [
-              ['gifsicle', { interlaced: true }],
-              ['jpegtran', { progressive: true }],
-              ['optipng', { optimizationLevel: 5 }],
+              ['gifsicle', {
+                interlaced: true
+              }],
+              ['jpegtran', {
+                progressive: true
+              }],
+              ['optipng', {
+                optimizationLevel: 5
+              }],
               // Svgo configuration here https://github.com/svg/svgo#configuration
               [
                 'svgo',
                 {
-                  plugins: [
-                    {
-                      name: 'removeViewBox',
-                      active: false,
-                    },
-                  ],
+                  plugins: [{
+                    name: 'removeViewBox',
+                    active: false,
+                  }, ],
                 },
               ],
             ],
@@ -124,8 +129,7 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: ['**/*', '!stats.json'],
     }),
     new CopyWebpackPlugin({
-      patterns: [
-        {
+      patterns: [{
           from: path.resolve(environment.paths.source, 'images'),
           to: path.resolve(environment.paths.output, 'images'),
           toType: 'dir',
@@ -141,6 +145,11 @@ module.exports = {
         {
           from: path.resolve(environment.paths.source, 'libs'),
           to: path.resolve(environment.paths.output, 'libs'),
+          toType: 'dir',
+        },
+        {
+          from: path.resolve(environment.paths.source, 'js/static.js'),
+          to: path.resolve(environment.paths.output, 'js/'),
           toType: 'dir',
         },
       ],

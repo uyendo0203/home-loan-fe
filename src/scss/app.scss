@@ -6,7 +6,7 @@
 @import "base/vars";
 
 /* CSS Reset */
-@import "base/reset";
+// @import "base/reset";
 
 /* CSS print */
 @import "base/print";
@@ -26,4 +26,6 @@
 
 /* Demo Page styles */
 @import "common";
+@import "header";
 @import "home";
+@import "refinance";
