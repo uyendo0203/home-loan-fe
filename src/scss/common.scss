@@ -36,3 +36,22 @@ body {
     @apply opacity-[1] z-[999];
   }
 }
+
+.toast {
+  @apply fixed right-[10px] top-[15px] translate-x-[110%];
+  @apply flex items-center w-full max-w-[20rem] p-4 space-x-4   bg-white rounded-lg shadow;
+  transition: 0.3s ease all;
+
+  svg {
+    @apply w-5 h-5 rotate-45;
+  }
+  .text {
+    @apply text-[0.9rem];
+  }
+  &.active {
+    @apply translate-x-0;
+  }
+  .icon {
+    @apply ml-auto #{!important};
+  }
+}

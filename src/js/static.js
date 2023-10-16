@@ -29,6 +29,8 @@ $(document).ready(function () {
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
     },
 
     // And if we need scrollbar
@@ -67,6 +69,14 @@ $(document).ready(function () {
   // $('.load').click(function () {
   //   $('.loading').addClass('active')
   // })
+
+  $('.toast .close').click(function () {
+    $('#toast-simple').removeClass('active')
+  })
+
+  $('.toastx').click(function () {
+    $('#toast-simple').toggleClass('active')
+  })
 
 });
 
