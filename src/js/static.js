@@ -74,9 +74,9 @@ $(document).ready(function () {
     $('#toast-simple').removeClass('active')
   })
 
-  $('.toastx').click(function () {
-    $('#toast-simple').toggleClass('active')
-  })
+  // $('.toastx').click(function () {
+  //   $('#toast-simple').toggleClass('active')
+  // })
 
 });
 
@@ -292,6 +292,8 @@ const formRefinance = () => {
   $(".submit").click(function () {
 
     $('.loading').addClass('active')
+    $('#toast-simple').toggleClass('active')
+
 
     let dataTimeContact = [],
       dataLanguagePrefer = [],
