@@ -1,100 +1,6 @@
 <div class="refinance">
     <div class="container">
         <div class="refinance__wrap">
-            {#
-            <div class="step">
-                <div class="step__item completed">
-                    <svg
-                        class="svg-inline--fa fa-check fa-w-16 fa-fw"
-                        aria-hidden="true"
-                        focusable="false"
-                        data-prefix="fa"
-                        data-icon="check"
-                        role="img"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                        data-fa-i2svg=""
-                    >
-                        <path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
-                    </svg>
-                </div>
-                <div class="step__item editing active">2</div>
-                <div class="step__item">3</div>
-                <div class="step__item">4</div>
-                <div class="step__item">5</div>
-            </div>
-            <div class="content-step">
-                <div class="content-item">
-                    <fieldset>
-                        <!--Default checkbox-->
-                        <div class="checkbox-item ">
-                            <input
-                                class="checkbox-item-input"
-                                type="checkbox"
-                                value=""
-                                id="checkboxDefault"
-                            >
-                            <label class="checkbox-item-label" for="checkboxDefault">
-                                Lower interest rate and cost
-                            </label>
-                        </div>
-                        <!--Default checked checkbox-->
-                        <div class="checkbox-item">
-                            <input
-                                class="checkbox-item-input"
-                                type="checkbox"
-                                value="1"
-                                id="checkboxChecked1"
-                                checked
-                            >
-                            <label class="checkbox-item-label" for="checkboxChecked1">
-                                Checked checkbox
-                            </label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input
-                                class="checkbox-item-input"
-                                type="checkbox"
-                                value="2"
-                                id="checkboxChecked2"
-                                checked
-                            >
-                            <label class="checkbox-item-label" for="checkboxChecked2">
-                                Some cash release
-                            </label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input
-                                class="checkbox-item-input"
-                                type="checkbox"
-                                value="3"
-                                id="checkboxChecked3"
-                                checked
-                            >
-                            <label class="checkbox-item-label" for="checkboxChecked3">
-                                minimise repayment/month
-                            </label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input
-                                class="checkbox-item-input"
-                                type="checkbox"
-                                value="4"
-                                id="checkboxChecked4"
-                                checked
-                            >
-                            <label class="checkbox-item-label" for="checkboxChecked4">
-                                Other Loans to be closed/paid out
-                            </label>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="content-item">2</div>
-                <div class="content-item">3</div>
-                <div class="content-item">4</div>
-                <div class="content-item">5</div>
-            </div>
-            #}
             <form id="msform">
                 <!-- progressbar -->
                 <ul id="progressbar">
@@ -113,111 +19,125 @@
                 <!-- fieldsets -->
                 <fieldset class="step step-1">
                     <h2 class="fs-title">Purpose of refinancing</h2>
-                    {#
-                    <h3 class="fs-subtitle">This is step 1</h3>
-                    #}
                     <label class="checkbox mb-[10px]">
-                        <input type="checkbox" name="checkbox1">
+                        <input type="checkbox" name="step1-purpose-check" value="1">
                         Lower interest rate and cost
                     </label>
                     <label class="checkbox mb-[10px]">
-                        <input type="checkbox" name="checkbox2" id="radio2">
+                        <input type="checkbox" name="step1-purpose-check" value="2">
                         Some cash release
                     </label>
                     <label class="checkbox mb-[10px]">
-                        <input type="checkbox" name="checkbox3" id="radio3">
-                        minimise repayment/month
+                        <input type="checkbox" name="step1-purpose-check" value="3">
+                        Minimise repayment/month
                     </label>
                     <label class="checkbox mb-[10px]">
-                        <input type="checkbox" name="checkbox4" id="radio4">
+                        <input type="checkbox" name="step1-purpose-check" value="4">
                         Other Loans to be closed/paid out
                     </label>
                     <input
+                        data-no="1"
                         type="button"
                         name="next"
                         class="next action-button"
                         value="Next"
                     >
                 </fieldset>
-                <fieldset class="step step-2 active">
-                    {#
-                    <h2 class="fs-title">Create your account</h2>
-                    #}
+                <fieldset class="step step-2">
                     <div class="text-left">
                         <strong class="mb-[7px] block">Loan purpose</strong>
                         <div class="flex">
-                            <label class="checkbox mr-3">
-                                <input type="checkbox" name="checkbox5">
+                            <label class="loan_purpose checkbox mr-3">
+                                <input type="checkbox" name="step-2-loan-purpose-check" value="1">
                                 Owner Occupied
                             </label>
-                            <label class="checkbox">
-                                <input type="checkbox" name="checkbox5" id="radio5">
+                            <label class="loan_purpose checkbox">
+                                <input type="checkbox" name="step-2-loan-purpose-check" value="2">
                                 Investment
                             </label>
                         </div>
                     </div>
                     <div class="mt-[15px]">
-                        <strong class="mb-[7px] block text-left">Current Loan amount</strong>
-                        <div class="range-slider">
-                            <input
-                                class="range-slider__range"
-                                type="range"
-                                value="100000"
-                                min="100000"
-                                max="2000000"
-                            >
-                            <span class="range-slider__value">0</span>
+                        <div class="range-slider step-2-current-loan-amount">
+                            <div class="range-slider__wrap">
+                                <strong class="range-slider__label">Current Loan amount</strong>
+                                <span class="range-slider__value">$100000</span>
+                            </div>
+                            <div class="w-full">
+                                <input
+                                    class="range-slider__range"
+                                    type="range"
+                                    value="100000"
+                                    min="100000"
+                                    max="2000000"
+                                    name="step-2-current-loan-amount"
+                                >
+                            </div>
                         </div>
                     </div>
                     <div class="mt-[15px]">
-                        <strong class="mb-[7px] block text-left">Current interest rate</strong>
-                        <div class="range-slider">
-                            <input
-                                class="range-slider__range percent"
-                                type="range"
-                                value="2"
-                                min="2"
-                                max="8"
-                            >
-                            <span class="range-slider__value">0</span>
+                        <div class="range-slider step-2-current-interest-rate">
+                            <div class="range-slider__wrap">
+                                <strong class="range-slider__label">Current interest rate</strong>
+                                <span class="range-slider__value">2%</span>
+                            </div>
+                            <div class="w-full">
+                                <input
+                                    class="range-slider__range percent"
+                                    type="range"
+                                    value="2"
+                                    min="2"
+                                    max="8"
+                                    name="step-2-current-interest-rate"
+                                >
+                            </div>
                         </div>
                     </div>
                     <div class="mt-[15px]">
-                        <strong class="mb-[7px] block text-left">Estimate value of property</strong>
-                        <div class="range-slider">
-                            <input
-                                class="range-slider__range"
-                                type="range"
-                                value="300000"
-                                min="300000"
-                                max="3000000"
-                            >
-                            <span class="range-slider__value">0</span>
+                        <div class="range-slider step-2-estimate-value-property">
+                            <div class="range-slider__wrap">
+                                <strong class="range-slider__label">Estimate value of property</strong>
+                                <span class="range-slider__value">$300000</span>
+                            </div>
+                            <div class="w-full">
+                                <input
+                                    class="range-slider__range"
+                                    type="range"
+                                    value="300000"
+                                    min="300000"
+                                    max="3000000"
+                                    name="step-2-rstimate-value-property"
+                                >
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-[15px]">
+                    <div class="mt-[15px] number-borrower">
                         <strong class="mb-[7px] block text-left">Is there any other Borrower?</strong>
                         <div class="flex">
-                            <div class="flex items-center mr-3">
+                            <div class="radio__wrap mr-3">
                                 <input
                                     id="default-radio-1"
                                     type="radio"
-                                    value=""
-                                    name="default-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                    value="1"
+                                    name="step-2-is-borrower-radio"
+                                    class="default-radio"
                                 >
-                                <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Yes</label>
+                                <label for="default-radio-1" class="radio__label">
+                                    Yes
+                                </label>
                             </div>
-                            <div class="flex items-center">
+                            <div class="radio__wrap">
                                 <input
-                                    checked
                                     id="default-radio-2"
+                                    checked
                                     type="radio"
-                                    value=""
-                                    name="default-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                    value="0"
+                                    name="step-2-is-borrower-radio"
+                                    class="default-radio"
                                 >
-                                <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">No</label>
+                                <label for="default-radio-2" class="radio__label">
+                                    No
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -228,6 +148,7 @@
                         value="Previous"
                     >
                     <input
+                        data-no="2"
                         type="button"
                         name="next"
                         class="next action-button"
@@ -236,12 +157,203 @@
                 </fieldset>
                 <fieldset class="step step-3">
                     <h2 class="fs-title">Borrower</h2>
-                    {#
-                    <h3 class="fs-subtitle">This is step 1</h3>
-                    #}
-                    <input type="text" name="email" placeholder="Email">
-                    <input type="password" name="pass" placeholder="Password">
-                    <input type="password" name="cpass" placeholder="Confirm Password">
+                    <div class="big-group big-group-1">
+                        <h3 class="big-group__title">Borrower 1</h3>
+                        <div class="big-group__wrap">
+                            <div class="group">
+                                <strong class="group-parent checkbox mb-[10px]">
+                                    <input
+                                        type="checkbox"
+                                        name="step-3-borrower-check"
+                                        value="1"
+                                        class="groupGeneral"
+                                    >
+                                    Working for other Business
+                                </strong>
+                                <div class="group-child">
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="1_1"
+                                            class="groupGeneral"
+                                        >
+                                        Current Employment length? (0-3), (3-6), 6+ months
+                                    </label>
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="1_2"
+                                            class="groupGeneral"
+                                        >
+                                        Are you permanently (annual leaves benefit) or Casual Employed?
+                                    </label>
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="1_3"
+                                            class="groupGeneral"
+                                        >
+                                        Estimate current income before tax : Weekly, fortnightly, monthly
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <strong class="group-parent checkbox mb-[10px]">
+                                    <input
+                                        type="checkbox"
+                                        name="step-3-borrower-check"
+                                        value="2"
+                                        class="groupGeneral"
+                                    >
+                                    Running your own business
+                                </strong>
+                                <div class="group-child">
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="2_1"
+                                            class="groupGeneral"
+                                        >
+                                        ABN registered: (MC) less than 12m, 1-2, 2-3, 3+ years
+                                    </label>
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="2_2"
+                                            class="groupGeneral"
+                                        >
+                                        GST registered Yes/No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <strong class="group-parent checkbox mb-[10px]">
+                                    <input
+                                        type="checkbox"
+                                        name="step-3-borrower-check"
+                                        value="3"
+                                        class="privateGroup"
+                                    >
+                                    Looking for new job
+                                </strong>
+                                <div class="group-child">
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="3_1"
+                                            class="privateGroup"
+                                        >
+                                        Expecting Salary before tax / year
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="big-group big-group-2">
+                        <h3 class="big-group__title">Borrower 2</h3>
+                        <div class="big-group__wrap">
+                            <div class="group">
+                                <strong class="group-parent checkbox mb-[10px]">
+                                    <input
+                                        type="checkbox"
+                                        name="step-3-borrower-check"
+                                        value="1"
+                                        class="groupGeneral"
+                                    >
+                                    Working for other Business
+                                </strong>
+                                <div class="group-child">
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="1_1"
+                                            class="groupGeneral"
+                                        >
+                                        Current Employment length? (0-3), (3-6), 6+ months
+                                    </label>
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="1_2"
+                                            class="groupGeneral"
+                                        >
+                                        Are you permanently (annual leaves benefit) or Casual Employed?
+                                    </label>
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="1_3"
+                                            class="groupGeneral"
+                                        >
+                                        Estimate current income before tax : Weekly, fortnightly, monthly
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <strong class="group-parent checkbox mb-[10px]">
+                                    <input
+                                        type="checkbox"
+                                        name="step-3-borrower-check"
+                                        value="2"
+                                        class="groupGeneral"
+                                    >
+                                    Running your own business
+                                </strong>
+                                <div class="group-child">
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="2_1"
+                                            class="groupGeneral"
+                                        >
+                                        ABN registered: (MC) less than 12m, 1-2, 2-3, 3+ years
+                                    </label>
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="2_2"
+                                            class="groupGeneral"
+                                        >
+                                        GST registered Yes/No
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <strong class="group-parent checkbox mb-[10px]">
+                                    <input
+                                        type="checkbox"
+                                        name="step-3-borrower-check"
+                                        value="3"
+                                        class="privateGroup"
+                                    >
+                                    Looking for new job
+                                </strong>
+                                <div class="group-child">
+                                    <label class="checkbox mb-[10px]">
+                                        <input
+                                            type="checkbox"
+                                            name="step-3-borrower-check"
+                                            value="3_1"
+                                            class="privateGroup"
+                                        >
+                                        Expecting Salary before tax / year
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- buttons -->
                     <input
                         type="button"
                         name="previous"
@@ -249,6 +361,7 @@
                         value="Previous"
                     >
                     <input
+                        data-no="3"
                         type="button"
                         name="next"
                         class="next action-button"
@@ -256,38 +369,111 @@
                     >
                 </fieldset>
                 <fieldset class="step step-4">
+                    <div class="mb-[15px] step-4-item any-other-source-of-income">
+                        <strong class="mb-[7px] block text-left">Any other source of income</strong>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-any-other-source-of-income" value="1">
+                            Rental income
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-any-other-source-of-income" value="2">
+                            Centrelink benefit
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-any-other-source-of-income" value="3">
+                            Dividend
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-any-other-source-of-income" value="4">
+                            Child support
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-any-other-source-of-income" value="5">
+                            Other special source of income
+                        </label>
+                    </div>
+                    <div class="step-4-item current-commitment">
+                        <strong class="mb-[7px] block text-left">Current Commitment / other ongoing loans</strong>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-current-commitment" value="1">
+                            Credit card
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-current-commitment" value="2">
+                            Car Loan
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-current-commitment" value="3">
+                            Personal Loan
+                        </label>
+                        <label class="checkbox mb-[10px]">
+                            <input type="checkbox" name="step-4-current-commitment" value="4">
+                            Business/company loans
+                        </label>
+                    </div>
+                    <input
+                        type="button"
+                        name="previous"
+                        class="previous action-button"
+                        value="Previous"
+                    >
+                    <input
+                        data-no="4"
+                        type="button"
+                        name="next"
+                        class="next action-button"
+                        value="Next"
+                    >
+                </fieldset>
+                <fieldset class="step step-5">
                     <h2 class="fs-title">Contact Info</h2>
-                    {#
-                    <h3 class="fs-subtitle">We will never sell it</h3>
-                    #}
-                    <input
-                        class="mb-[10px]"
-                        type="text"
-                        name="fname"
-                        placeholder="Full Name"
-                    >
-                    <input
-                        class="mb-[10px]"
-                        type="text"
-                        name="lname"
-                        placeholder="Email"
-                    >
-                    <input
-                        class="mb-[10px]"
-                        type="text"
-                        name="phone"
-                        placeholder="Phone"
-                    >
-                    <div class="mt-[10px]">
+                    <div class="flex flex-col info">
+                        <input
+                            class="mb-[10px]"
+                            type="text"
+                            name="step-5-name"
+                            placeholder="Full Name"
+                        >
+                        <input
+                            class="mb-[10px]"
+                            type="text"
+                            name="step-5-email"
+                            placeholder="Email"
+                        >
+                        <input
+                            class="mb-[10px]"
+                            type="text"
+                            name="step-5-phone"
+                            placeholder="Phone"
+                        >
+                    </div>
+                    <div class="mt-[10px] best-time-to-contact">
                         <strong class="mb-[7px] block text-left">Best time to contact</strong>
                         <div class="flex">
                             <label class="checkbox mb-0 mr-3">
-                                <input type="checkbox" name="checkbox5">
+                                <input type="checkbox" name="step-5-checkbox1" value="working_hours">
                                 Working hours
                             </label>
                             <label class="checkbox">
-                                <input type="checkbox" name="checkbox5" id="radio5">
+                                <input type="checkbox" name="step-5-checkbox2" value="after_hours">
                                 After hours
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-[10px] language-prefer">
+                        <strong class="mb-[7px] block text-left">Language Prefer</strong>
+                        <div class="flex">
+                            <label class="checkbox mb-0 mr-3">
+                                <input type="checkbox" name="step-5-checkbox1" value="English">
+                                English
+                            </label>
+                            <label class="checkbox mr-3">
+                                <input type="checkbox" name="step-5-checkbox2" value="Vietnamese">
+                                Vietnamese
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="step-5-checkbox2" value="Chinese">
+                                Chinese
                             </label>
                         </div>
                     </div>
@@ -298,6 +484,7 @@
                         value="Previous"
                     >
                     <input
+                        data-no="5"
                         type="submit"
                         name="submit"
                         class="submit action-button"
@@ -308,3 +495,6 @@
         </div>
     </div>
 </div>
+{#
+<button class="load">load</button>
+#}

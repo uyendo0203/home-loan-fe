@@ -1,5 +1,5 @@
 .refinance {
-  @apply relative min-h-[90vh] overflow-hidden;
+  @apply relative min-h-[87.5vh] overflow-hidden;
   @apply py-[4rem];
   &:before {
     content: " ";
@@ -70,7 +70,7 @@
 
 /*form styles*/
 #msform {
-  width: 600px;
+  width: 625px;
   margin: 50px auto;
   text-align: center;
   position: relative;
@@ -186,6 +186,7 @@
 .step {
   .checkbox {
     @apply flex items-center;
+    @apply cursor-pointer;
     &:not(:last-child) {
       // @apply mb-[10px];
     }
@@ -205,6 +206,10 @@
   textarea {
     @apply w-full;
   }
+}
+.step-3 {
+  overflow-y: auto;
+  max-height: 560px;
 }
 
 // Base Colors
@@ -227,13 +232,18 @@ $range-label-width: 60px !default;
 
 .range-slider {
   width: $range-width;
-  display: flex;
-  align-items: center;
+  @apply flex flex-col;
 }
-
+.range-slider__wrap {
+  @apply flex justify-between;
+}
+.range-slider__label {
+  @apply mb-[7px] block text-left;
+}
 .range-slider__range {
   -webkit-appearance: none;
-  width: calc(100% - (#{$range-label-width + 13px}));
+  width: 100%;
+  // width: calc(100% - (#{$range-label-width + 13px}));
   height: $range-track-height;
   border-radius: 5px;
   background: $range-track-color;
@@ -290,33 +300,34 @@ $range-label-width: 60px !default;
 
 // Range Label
 .range-slider__value {
+  @apply font-bold;
   display: inline-block;
   position: relative;
   // width: $range-label-width;
   width: auto;
-  color: $shade-0;
+  color: $range-label-color;
   line-height: 20px;
   text-align: center;
   border-radius: 3px;
-  background: $range-label-color;
+  // background: $range-label-color;
   padding: 5px 10px;
   margin-left: 8px;
 
-  &:after {
-    position: absolute;
-    top: 8px;
-    left: -7px;
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-right: 7px solid $range-label-color;
-    border-bottom: 7px solid transparent;
-    content: "";
-  }
+  // &:after {
+  //   position: absolute;
+  //   top: 8px;
+  //   left: -7px;
+  //   width: 0;
+  //   height: 0;
+  //   border-top: 7px solid transparent;
+  //   border-right: 7px solid $range-label-color;
+  //   border-bottom: 7px solid transparent;
+  //   content: "";
+  // }
 }
 
 // Firefox Overrides
-::-moz-range-track {
+input::-moz-range-track {
   background: $range-track-color;
   border: 0;
 }
@@ -324,4 +335,49 @@ $range-label-width: 60px !default;
 input::-moz-focus-inner,
 input::-moz-focus-outer {
   border: 0;
+}
+
+.default-radio {
+  @apply w-4 h-4;
+}
+
+.group {
+  .checkbox {
+    @apply mb-[7px] block cursor-pointer text-left;
+  }
+  &:not(:first-child) {
+    @apply mt-[15px];
+  }
+  &.disabled {
+    @apply opacity-[0.5];
+  }
+}
+.group-child {
+  @apply pl-[35px] text-[80%] text-left;
+  label {
+    @apply cursor-pointer;
+  }
+}
+.big-group {
+  &__title {
+    @apply text-left bg-[#f8c35791] mb-[10px] px-[15px] py-[5px];
+  }
+  &__wrap {
+    transition: all 0.3s ease;
+    // @apply h-0 overflow-hidden;
+  }
+  // &.active {
+  //   .big-group__wrap {
+  //     @apply h-auto overflow-visible;
+  //   }
+  // }
+}
+
+.radio {
+  &__wrap {
+    @apply flex items-center;
+  }
+  &__label {
+    @apply ml-2 text-sm font-medium cursor-pointer;
+  }
 }

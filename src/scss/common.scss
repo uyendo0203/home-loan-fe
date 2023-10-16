@@ -27,3 +27,12 @@ body {
   @apply text-[2.3rem] font-bold;
   @apply mb-[1rem];
 }
+
+.loading {
+  @apply fixed w-full h-full bg-[#ffffff82] opacity-0 z-[-1];
+  @apply top-0 bottom-0 left-0 right-0;
+  transition: all 0.3s ease;
+  &.active {
+    @apply opacity-[1] z-[999];
+  }
+}

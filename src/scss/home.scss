@@ -1,3 +1,7 @@
+.home1 {
+  @apply lg:h-[85vh] overflow-hidden flex items-center;
+}
+
 .home2 {
   @apply pt-[5rem] bg-[#ededeb];
   box-shadow: rgb(255, 255, 255) 0px -3rem 0px inset;
