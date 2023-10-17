@@ -38,7 +38,7 @@ body {
 }
 
 .toast {
-  @apply fixed right-[10px] top-[15px] translate-x-[110%];
+  @apply fixed right-[10px] top-[100px] translate-x-[110%];
   @apply flex items-center w-full max-w-[20rem] p-4 space-x-4   bg-white rounded-lg shadow;
   transition: 0.3s ease all;
 
@@ -54,4 +54,64 @@ body {
   .icon {
     @apply ml-auto #{!important};
   }
+}
+
+.form {
+  @apply py-[50px];
+  h3 {
+    @apply text-[30px];
+  }
+}
+
+.contact {
+  @apply bg-[#ededeb];
+  .page-title {
+    @apply mb-[1.5rem] #{!important};
+  }
+  form {
+    label {
+      @apply block;
+    }
+    input,
+    textarea {
+      @apply border-[1px] border-[#ddd] rounded-[10px] px-[15px];
+      @apply w-full;
+      &:focus {
+        @apply outline-none;
+      }
+    }
+    textarea {
+      @apply resize-none;
+    }
+    input {
+      @apply h-[40px] sm:h-[50px];
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+    }
+    button[type="submit"] {
+      @apply px-[2rem];
+    }
+    button[disabled="disabled"] {
+      @apply cursor-default opacity-[0.5];
+    }
+  }
+  .form-item {
+    @apply flex flex-wrap -mx-3 mb-[15px];
+  }
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after,
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  @apply text-[25px] sm:text-[40px];
 }

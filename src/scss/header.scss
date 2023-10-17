@@ -7,11 +7,16 @@
     @apply max-w-[8rem];
   }
   .nav {
+    @apply sm:block;
     &__ul {
-      @apply flex;
+      @apply flex flex-col sm:flex-row;
+      @apply fixed sm:static bg-[#f4d087] sm:bg-[transparent];
+      @apply w-[50%] min-w-[240px] right-[-100%] top-[76px] h-full z-[99] p-[20px] sm:p-0;
+      transition: 0.3s ease all;
     }
     &__li {
-      @apply mx-[1.5rem];
+      @apply mx-[1.5rem] my-[1rem] sm:my-0;
+      @apply text-[16px];
     }
     &__a {
       @apply relative pb-[5px] font-medium;
@@ -25,6 +30,50 @@
           @apply w-full;
         }
       }
+    }
+  }
+  &.active {
+    .nav__ul {
+      @apply right-0;
+    }
+    .hambuger {
+      span {
+        opacity: 1;
+        transform: rotate(45deg) translate(6px, -10px);
+        background: #232323;
+        &:nth-child(3) {
+          opacity: 0;
+          transform: rotate(0deg) scale(0.2, 0.2);
+        }
+        &:nth-child(2) {
+          transform: rotate(-45deg) translate(1px, 14px);
+        }
+      }
+    }
+  }
+}
+.hambuger {
+  @apply block sm:hidden ml-auto cursor-pointer;
+  span {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #000;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition:
+      transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      opacity 0.55s ease;
+    &:first-child {
+      transform-origin: 0% 0%;
+    }
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
     }
   }
 }
