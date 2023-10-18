@@ -1,7 +1,24 @@
+$(window).scroll(function () {
+  if ($(window).scrollTop() >= $('.header').innerHeight()) {
+    $('.header').addClass('fixed-header');
+  } else {
+    $('.header').removeClass('fixed-header');
+  }
+});
+
 $(document).ready(function () {
 
   $('.loading').removeClass('active')
 
+
+  $('.toast .close').click(function () {
+    $('#toast-simple').removeClass('active')
+  })
+  $('.hambuger').click(function () {
+    $(this).closest('.header').toggleClass('active')
+  })
+
+  // form contact 
   function isValidForm(form) {
     isValid = true;
     var REX_IS_NUMBER = new RegExp('^[0-9]*$');
@@ -97,6 +114,7 @@ $(document).ready(function () {
     validateForm($submit, form);
   }
   contactValidateForm()
+  //end form contact 
 
 
   const swiperHome1 = new Swiper('.swiper-home-1', {
@@ -135,16 +153,14 @@ $(document).ready(function () {
     // },
   });
 
-
   formRefinance()
-
   // Event Step 3: Disable group  Looking for new job
   $('.groupGeneral').click(function () {
     if ($(this).is(":checked")) {
       $(this).closest('.group').find('.group-parent input').prop('checked', true);
       $('.privateGroup').attr('disabled', true);
     } else {
-      $(this).parent().parent('.group').find('.group-child').find('input').prop('checked', false);
+      $(this).closest('.group').find('.group-child input').prop('checked', false);
       if (!$('.groupGeneral').is(':checked')) {
         $('.privateGroup').attr('disabled', false);
       }
@@ -155,29 +171,61 @@ $(document).ready(function () {
       $(this).closest('.group').find('.group-parent input').prop('checked', true);
       $('.groupGeneral').attr('disabled', true);
     } else {
+      $(this).closest('.group').find('.group-parent input').prop('checked', false);
       if (!$('.privateGroup').is(':checked')) {
         $('.groupGeneral').attr('disabled', false);
       }
     }
   });
 
-
-  // $('.load').click(function () {
-  //   $('.loading').addClass('active')
-  // })
-
-  $('.toast .close').click(function () {
-    $('#toast-simple').removeClass('active')
-  })
-  $('.hambuger').click(function () {
-    $(this).closest('.header').toggleClass('active')
-  })
-
-  // $('.toastx').click(function () {
-  //   $('#toast-simple').toggleClass('active')
-  // })
+  $('.refinance .next').attr('disabled', 'disabled')
+  // step 1
+  step1CheckForNext()
+  step2CheckForNext()
 
 });
+
+const step1CheckForNext = () => {
+  let checkArrStep1 = []
+  $("input[name='step1-purpose-check']").change(function () {
+    // console.log($(this));
+    checked = $(this).is(":checked");
+    // console.log(checked, $(this).val());
+    if (checked == true) {
+      checkArrStep1.push($(this).val())
+    }
+
+    if (checked === false && checkArrStep1.indexOf($(this).val()) != -1)
+      checkArrStep1.splice(checkArrStep1.indexOf($(this).val()), 1)
+
+    if (checkArrStep1.length > 0) {
+      $('.next[data-no="1"]').removeAttr('disabled')
+    } else {
+      $('.next[data-no="1"]').attr('disabled', 'disabled')
+    }
+  });
+}
+const step2CheckForNext = () => {
+  let checkArr = []
+  $("input[name='step-2-loan-purpose-check']").change(function () {
+    // console.log($(this));
+    checked = $(this).is(":checked");
+    // console.log(checked, $(this).val());
+    if (checked == true) {
+      checkArr.push($(this).val())
+    }
+
+    if (checked === false && checkArr.indexOf($(this).val()) != -1)
+      checkArr.splice(checkArr.indexOf($(this).val()), 1)
+
+    if (checkArr.length > 0) {
+      $('.next[data-no="2"]').removeAttr('disabled')
+    } else {
+      $('.next[data-no="2"]').attr('disabled', 'disabled')
+    }
+  });
+}
+
 
 const formRefinance = () => {
   var current_fs, next_fs, previous_fs; //fieldsets
@@ -270,16 +318,19 @@ const formRefinance = () => {
       let dataCurrentInterestRate = $('.step-2-current-interest-rate .range-slider__value').text()
       let dataEstimateBalueProperty = $('.step-2-estimate-value-property .range-slider__value').text()
 
-
+      let step2IsThereAnyOtherBorrower = $('input[name="step-2-is-there-any-other-borrower"]:checked').val();
+      console.log({
+        step2IsThereAnyOtherBorrower
+      });
       MainObject.step2 = {
+        "is-there-any-other-borrower": step2IsThereAnyOtherBorrower,
         "loan-purpose": dataLoanPurpose,
         "current-loan-amount": dataCurrentLoanAmount,
         "current-interest-rate": dataCurrentInterestRate,
         "estimate-value-property": dataEstimateBalueProperty,
       }
 
-      var radioValue = $(".step-2 .number-borrower input[name='step-2-is-borrower-radio']:checked").val();
-      if (parseInt(radioValue) === 0) { //0:false, 1:true
+      if (parseInt(step2IsThereAnyOtherBorrower) == 0) { //0:false, 1:true
         $('.big-group-2').hide()
         $('.big-group-1 .big-group__title').hide()
       } else {
@@ -292,11 +343,45 @@ const formRefinance = () => {
       borrower1: [],
       borrower2: []
     };
-    if (dataNo == 3) {
 
+    let group = {
+      group1: [],
+      group2: [],
+      group3: [],
+    }
+
+    let mergeMap = function (temps) {
+      let fake = [];
+      elementTemp = '';
+      for (let i = 0; i < temps.length; i++) {
+        if (parseInt(temps[i])) {
+          let arrayGroup = [];
+          arrayGroup.push(temps[i]);
+          elementTemp = parseInt(temps[i]);
+          fake.push(arrayGroup);
+        } else {
+          for (let j = 0; j < fake.length; j++) {
+            if (parseInt(fake[j]) == parseInt(elementTemp)) {
+              let a = fake[j];
+              a.push(temps[i]);
+              fake[j] = a;
+            }
+          }
+        }
+      }
+
+      fake.forEach((item, index) => {
+        item.shift()
+      })
+
+      return fake
+
+    }
+
+    if (dataNo == 3) {
       $('.big-group-1 .groupGeneral').each(function () {
         if ($(this).is(':checked')) {
-          dataStep3.borrower1.push($(this).val())
+          dataStep3.borrower1.push($(this).val() == 1 || $(this).val() == 2 || $(this).val() == 3 ? parseInt($(this).val()) : $(this).val())
         }
       })
       $('.big-group-1 .privateGroup').each(function () {
@@ -315,6 +400,15 @@ const formRefinance = () => {
           dataStep3.borrower2.push($(this).val())
         }
       })
+
+
+      dataStep3.borrower1 = mergeMap(dataStep3.borrower1)
+      dataStep3.borrower2 = mergeMap(dataStep3.borrower2)
+
+
+      console.log('dataStep3', dataStep3);
+
+
       MainObject.step3 = dataStep3
     } //end step 3
 
@@ -388,7 +482,7 @@ const formRefinance = () => {
     });
   });
 
-  $(".submit").click(function () {
+  $(".refinance .submit").click(function () {
 
     $('.loading').addClass('active')
     $('#toast-simple').toggleClass('active')

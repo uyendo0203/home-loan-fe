@@ -17,7 +17,9 @@ module.exports = {
       auto: 'auto',
       square: '1 / 1',
       video: '16 / 9',
+      test: '13 / 5',
       team: '3 / 4',
+      homebanner: '2 / 3',
     },
     colors: {
       "black": "#000",

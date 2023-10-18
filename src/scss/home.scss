@@ -81,6 +81,7 @@
   }
   &__title {
     @apply text-center lg:text-left;
+    @apply mb-0;
   }
   &__sub-title {
     @apply mb-[1rem];

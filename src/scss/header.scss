@@ -1,10 +1,12 @@
 .header {
-  @apply my-[0.5rem];
+  @apply my-[0.5rem] bg-white;
+  transition: all 0.3s ease;
   &__wrap {
     @apply flex items-center justify-between;
   }
   .logo {
     @apply max-w-[8rem];
+    transition: all 0.3s ease;
   }
   .nav {
     @apply sm:block;
@@ -49,6 +51,13 @@
           transform: rotate(-45deg) translate(1px, 14px);
         }
       }
+    }
+  }
+  &.fixed-header {
+    @apply fixed  top-0 m-0 w-full z-[99];
+    box-shadow: 0px 3px 4px #0000001a;
+    .logo {
+      @apply max-w-[90px] py-[10px];
     }
   }
 }
