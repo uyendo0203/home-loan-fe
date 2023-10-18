@@ -70,7 +70,8 @@
 
 /*form styles*/
 #msform {
-  .next[disabled="disabled"] {
+  button[disabled="disabled"],
+  input[disabled="disabled"] {
     @apply opacity-[0.5] cursor-auto;
   }
 

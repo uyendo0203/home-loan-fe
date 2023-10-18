@@ -154,43 +154,67 @@ $(document).ready(function () {
   });
 
   formRefinance()
+
+
   // Event Step 3: Disable group  Looking for new job
   $('.groupGeneral').click(function () {
+    $('.step-3 .next').attr('disabled', true);
     if ($(this).is(":checked")) {
       $(this).closest('.group').find('.group-parent input').prop('checked', true);
-      $('.privateGroup').attr('disabled', true);
+      $(this).closest('.big-group').find('.privateGroup').attr('disabled', true);
+
     } else {
       $(this).closest('.group').find('.group-child input').prop('checked', false);
       if (!$('.groupGeneral').is(':checked')) {
-        $('.privateGroup').attr('disabled', false);
+        $(this).closest('.big-group').find('.privateGroup').attr('disabled', false);
       }
+
     }
+    enableButtonNextStep3('groupGeneral');
+
   });
   $('.privateGroup').click(function () {
+    $('.step-3 .next').attr('disabled', true);
     if ($(this).is(":checked")) {
       $(this).closest('.group').find('.group-parent input').prop('checked', true);
-      $('.groupGeneral').attr('disabled', true);
+      $(this).closest('.big-group').find('.groupGeneral').attr('disabled', true);
+      //Enable button Next if chidren was checked
+      if ($(this).parent().parent().hasClass('group-child')) {
+        $('.step-3 .next').attr('disabled', false);
+      }
     } else {
       $(this).closest('.group').find('.group-parent input').prop('checked', false);
       if (!$('.privateGroup').is(':checked')) {
-        $('.groupGeneral').attr('disabled', false);
+        $(this).closest('.big-group').find('.groupGeneral').attr('disabled', false);
       }
     }
+    enableButtonNextStep3('privateGroup');
   });
 
   $('.refinance .next').attr('disabled', 'disabled')
+  $('.refinance .submit').attr('disabled', 'disabled')
   // step 1
   step1CheckForNext()
   step2CheckForNext()
+  step4CheckForNext()
+  step5CheckForNext()
 
+  // display: block;
+  // left: 0;
+  // opacity: 1;
 });
+
+function enableButtonNextStep3(className) {
+  //Enable button Next if chidren was checked
+  if ($('.group-child').find('.' + className).is(":checked")) {
+    $('.step-3 .next').attr('disabled', false);
+  }
+}
 
 const step1CheckForNext = () => {
   let checkArrStep1 = []
   $("input[name='step1-purpose-check']").change(function () {
-    // console.log($(this));
     checked = $(this).is(":checked");
-    // console.log(checked, $(this).val());
     if (checked == true) {
       checkArrStep1.push($(this).val())
     }
@@ -209,7 +233,7 @@ const step2CheckForNext = () => {
   let checkArr = []
   $("input[name='step-2-loan-purpose-check']").change(function () {
     // console.log($(this));
-    checked = $(this).is(":checked");
+    let checked = $(this).is(":checked");
     // console.log(checked, $(this).val());
     if (checked == true) {
       checkArr.push($(this).val())
@@ -225,7 +249,193 @@ const step2CheckForNext = () => {
     }
   });
 }
+const step4CheckForNext = () => {
+  let checkArr1 = [],
+    checkArr2 = [];
 
+  let isCheck1 = false,
+    isCheck2 = false;
+
+  // const isCheckFunc = (item, arr, variableCheck) => {
+  //   let checked = item.is(":checked");
+  //   if (checked == true) {
+  //     arr.push(item.val())
+  //   }
+
+  //   if (checked === false && arr.indexOf(item.val()) != -1) {
+  //     arr.splice(arr.indexOf(item.val()), 1)
+  //   }
+
+  //   if (arr.length > 0) {
+  //     variableCheck = true
+  //   } else {
+  //     variableCheck = false
+  //   }
+
+  //   if (isCheck1 == true && isCheck2 == true) {
+  //     $('.next[data-no="4"]').removeAttr('disabled')
+  //   } else {
+  //     $('.next[data-no="4"]').attr('disabled', 'disabled')
+  //   }
+  // }
+
+  $('input[name="step-4-any-other-source-of-income"]').change(function () {
+    // isCheckFunc($(this), checkArr1, isCheck1)
+
+    let checked = $(this).is(":checked");
+    if (checked == true) {
+      checkArr1.push($(this).val())
+    }
+
+    if (checked === false && checkArr1.indexOf($(this).val()) != -1) {
+      checkArr1.splice(checkArr1.indexOf($(this).val()), 1)
+    }
+
+    if (checkArr1.length > 0) {
+      isCheck1 = true
+    } else {
+      isCheck1 = false
+    }
+
+    if (isCheck1 == true && isCheck2 == true) {
+      $('.next[data-no="4"]').removeAttr('disabled')
+    } else {
+      $('.next[data-no="4"]').attr('disabled', 'disabled')
+    }
+
+  })
+  $('input[name="step-4-current-commitment"]').change(function () {
+    // isCheckFunc($(this), checkArr2, isCheck2)
+
+    let checked = $(this).is(":checked");
+    if (checked == true) {
+      checkArr2.push($(this).val())
+    }
+
+    if (checked === false && checkArr2.indexOf($(this).val()) != -1) {
+      checkArr2.splice(checkArr2.indexOf($(this).val()), 1)
+    }
+
+    if (checkArr2.length > 0) {
+      isCheck2 = true
+    } else {
+      isCheck2 = false
+    }
+
+    if (isCheck1 == true && isCheck2 == true) {
+      $('.next[data-no="4"]').removeAttr('disabled')
+    } else {
+      $('.next[data-no="4"]').attr('disabled', 'disabled')
+    }
+
+
+  })
+
+
+}
+const step5CheckForNext = () => {
+
+  let isCheckTime, isCheckLang, isCheckInput = {
+    name: false,
+    email: false,
+    phone: false
+  };
+  let arrCheckTime = [],
+    arrCheckLang = [];
+
+  const allCheckOk = () => {
+    // isCheckTime == true && isCheckLang == true && 
+    if (isCheckTime == true && isCheckLang == true && isCheckInput.name == true && isCheckInput.email == true && isCheckInput.phone == true) {
+      $('.submit[data-no="5"]').removeAttr('disabled')
+    } else {
+      $('.submit[data-no="5"]').attr('disabled', 'disabled')
+    }
+  }
+
+  function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
+
+
+  $('input[name="step-5-time-contact"]').change(function () {
+
+    let checked = $(this).is(":checked");
+    if (checked == true) {
+      arrCheckTime.push($(this).val())
+    }
+
+    if (checked === false && arrCheckTime.indexOf($(this).val()) != -1) {
+      arrCheckTime.splice(arrCheckTime.indexOf($(this).val()), 1)
+    }
+
+    if (arrCheckTime.length > 0) {
+      isCheckTime = true
+    } else {
+      isCheckTime = false
+    }
+
+    allCheckOk()
+  })
+  $('input[name="step-5-language"]').change(function () {
+
+    let checked = $(this).is(":checked");
+    if (checked == true) {
+      arrCheckLang.push($(this).val())
+    }
+
+    if (checked === false && arrCheckLang.indexOf($(this).val()) != -1) {
+      arrCheckLang.splice(arrCheckLang.indexOf($(this).val()), 1)
+    }
+
+    if (arrCheckLang.length > 0) {
+      isCheckLang = true
+    } else {
+      isCheckLang = false
+    }
+
+    allCheckOk()
+
+  })
+
+  $('input[name="step-5-name"]').on("change keyup", function () {
+    let value = $(this).val()
+    isCheckInput.name = false
+
+    if (value.trim() !== "") {
+      isCheckInput.name = true
+    }
+    allCheckOk()
+
+  })
+  $('input[name="step-5-email"]').on("change keyup", function () {
+    let value = $(this).val()
+    isCheckInput.email = false
+    let isCheckMail = isEmail(value)
+    let isNull = false
+
+    if (value.trim() !== "") {
+      isNull = true
+    }
+
+    if (isCheckMail === true && isNull === true) {
+      isCheckInput.email = true
+    }
+
+    allCheckOk()
+
+  })
+  $('input[name="step-5-phone"]').on("change keyup", function () {
+    let value = $(this).val()
+    isCheckInput.phone = false
+
+    if (value.trim() !== "") {
+      isCheckInput.phone = true
+    }
+    allCheckOk()
+
+  })
+}
 
 const formRefinance = () => {
   var current_fs, next_fs, previous_fs; //fieldsets

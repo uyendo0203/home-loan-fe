@@ -2282,7 +2282,8 @@ body {
   /*inputs*/
   /*buttons*/
 }
-#msform .next[disabled=disabled] {
+#msform button[disabled=disabled],
+#msform input[disabled=disabled] {
   cursor: auto;
   opacity: 0.5;
 }
