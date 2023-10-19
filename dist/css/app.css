@@ -1114,10 +1114,6 @@ video {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
-.py-\[4rem\] {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
 .py-\[50px\] {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -2043,8 +2039,6 @@ body {
   position: relative;
   min-height: 87.5vh;
   overflow: hidden;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 .refinance:before {
   content: " ";
