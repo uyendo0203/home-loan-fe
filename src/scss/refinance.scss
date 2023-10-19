@@ -2,17 +2,13 @@
   @apply relative min-h-[87.5vh] overflow-hidden;
   &:before {
     content: " ";
-    background-color: #f8c357;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
+    @apply bg-[#f8c357] w-full h-full;
+    @apply absolute top-0 right-0 left-0;
+
     transform: translateZ(-1px) scale(1.6);
     background-size: 100%;
     z-index: -1;
     background-image: url(https://dav3uwijswi8g.cloudfront.net/become/landing_page/img/lines.svg?v=2.2);
-    width: 100%;
-    height: 100%;
     background-repeat: no-repeat;
   }
   &__wrap {
@@ -20,39 +16,13 @@
   }
 }
 
-// .step {
-//   @apply flex justify-center;
-//   &__item {
-//     @apply mx-[5px] rounded-[50%];
-//     @apply text-[1.2rem] text-white;
-//     padding: 4px 5px;
-//     text-indent: inherit;
-//     border: 1px solid #fff;
-//     @apply w-[50px] h-[50px];
-//     @apply flex items-center justify-center;
-//     &.active {
-//       background: #fff;
-//       @apply text-yellow;
-//     }
-//     svg {
-//       @apply max-w-[70%];
-//     }
-//   }
-// }
-
 .content-step {
   @apply my-[2rem];
   @apply flex;
 }
 .content-item {
-  @apply my-[2rem];
-  max-width: 560px;
-  width: 100%;
-  border-radius: 25px;
-  background: #fff;
+  @apply my-[2rem] max-w-[560px] w-full rounded-[25px] bg-white block m-auto;
   box-shadow: 0 6px 21px rgba(41, 7, 89, 0.16);
-  display: block;
-  margin: auto;
   padding: 30px 50px;
 }
 
@@ -74,22 +44,12 @@
     @apply opacity-[0.5] cursor-auto;
   }
 
-  @apply w-full sm:w-[625px];
-  margin: 50px auto;
-  text-align: center;
-  position: relative;
+  @apply w-full sm:w-[625px] my-[50px] mx-auto text-center relative;
   fieldset {
-    background: white;
+    @apply bg-white rounded-[3px] p-[30px] w-full absolute;
     border: 0 none;
-    border-radius: 3px;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 30px;
-
     box-sizing: border-box;
-    width: 100%;
-
-    /*stacking fieldsets above each other*/
-    position: absolute;
   }
   fieldset:not(:first-of-type) {
     display: none;
@@ -97,15 +57,9 @@
   /*inputs*/
   input,
   textarea {
-    padding: 15px;
+    @apply p-[15px] rounded-[3px] text-[14px];
     border: 1px solid #ccc;
-    border-radius: 3px;
-    // margin-bottom: 10px;
-    // width: 100%;
     box-sizing: border-box;
-    font-family: montserrat;
-    color: #2c3e50;
-    font-size: 13px;
   }
   /*buttons*/
   .action-button {
@@ -237,6 +191,16 @@ $range-label-width: 60px !default;
 .range-slider {
   width: $range-width;
   @apply flex flex-col;
+  // Firefox Overrides
+  input::-moz-range-track {
+    background: $range-track-color;
+    border: 0;
+  }
+
+  input::-moz-focus-inner,
+  input::-moz-focus-outer {
+    border: 0;
+  }
 }
 .range-slider__wrap {
   @apply flex justify-between;
@@ -301,48 +265,17 @@ $range-label-width: 60px !default;
     }
   }
 }
-
-// Range Label
 .range-slider__value {
   @apply font-bold;
   display: inline-block;
   position: relative;
-  // width: $range-label-width;
   width: auto;
   color: $range-label-color;
   line-height: 20px;
   text-align: center;
   border-radius: 3px;
-  // background: $range-label-color;
   padding: 5px 10px;
   margin-left: 8px;
-
-  // &:after {
-  //   position: absolute;
-  //   top: 8px;
-  //   left: -7px;
-  //   width: 0;
-  //   height: 0;
-  //   border-top: 7px solid transparent;
-  //   border-right: 7px solid $range-label-color;
-  //   border-bottom: 7px solid transparent;
-  //   content: "";
-  // }
-}
-
-// Firefox Overrides
-input::-moz-range-track {
-  background: $range-track-color;
-  border: 0;
-}
-
-input::-moz-focus-inner,
-input::-moz-focus-outer {
-  border: 0;
-}
-
-.default-radio {
-  @apply w-4 h-4;
 }
 
 .group {
@@ -368,15 +301,12 @@ input::-moz-focus-outer {
   }
   &__wrap {
     transition: all 0.3s ease;
-    // @apply h-0 overflow-hidden;
   }
-  // &.active {
-  //   .big-group__wrap {
-  //     @apply h-auto overflow-visible;
-  //   }
-  // }
 }
 
+.default-radio {
+  @apply w-4 h-4;
+}
 .radio {
   &__wrap {
     @apply flex items-center;

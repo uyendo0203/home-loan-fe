@@ -38,7 +38,6 @@
 .home3 {
   @apply my-[3rem];
   &__wrap {
-    // @apply text-xl;
   }
   &__title {
     @apply mb-[2rem] text-center lg:text-left;
@@ -58,16 +57,13 @@
   &__wrap {
   }
   &__title {
-    // @apply text-white;
   }
   .swiper-slide {
-    // @apply font-light;
     p {
       @apply mb-[10px] leading-[1.5];
     }
   }
   .swiper-wrapper {
-    // @apply max-w-[80%] mx-auto;
   }
   .swiper-pagination {
     @apply static mt-[1rem];

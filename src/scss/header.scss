@@ -64,15 +64,7 @@
 .hambuger {
   @apply block sm:hidden ml-auto cursor-pointer;
   span {
-    position: relative;
-    display: block;
-    width: 30px;
-    height: 3px;
-    margin-bottom: 5px;
-    position: relative;
-    background: #000;
-    border-radius: 3px;
-    z-index: 1;
+    @apply z-[1] relative bg-black block w-[30px] h-[3px] mb-[5px] rounded-[3px];
     transform-origin: 4px 0px;
     transition:
       transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),

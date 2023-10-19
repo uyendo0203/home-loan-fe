@@ -1,0 +1,52 @@
+.form {
+  @apply py-[50px];
+  h3 {
+    @apply text-[30px];
+  }
+}
+
+.contact {
+  @apply bg-[#ededeb];
+  .page-title {
+    @apply mb-[1.5rem] #{!important};
+  }
+  form {
+    label {
+      @apply block;
+    }
+    input,
+    textarea {
+      @apply border-[1px] border-[#ddd] rounded-[10px] px-[15px];
+      @apply w-full;
+      &:focus {
+        @apply outline-none;
+      }
+    }
+    textarea {
+      @apply resize-none;
+    }
+    input {
+      @apply h-[40px] sm:h-[50px];
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      &[type="number"] {
+        -moz-appearance: textfield;
+      }
+    }
+    button[type="submit"] {
+      @apply px-[2rem];
+    }
+    button[disabled="disabled"] {
+      @apply cursor-default opacity-[0.5];
+    }
+  }
+  .form-item {
+    @apply flex flex-wrap -mx-3 mb-[15px];
+  }
+}
