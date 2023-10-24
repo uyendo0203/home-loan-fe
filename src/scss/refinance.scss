@@ -1,12 +1,11 @@
 .refinance {
-  @apply relative min-h-[87.5vh] overflow-hidden;
+  @apply relative min-h-[130vh] overflow-hidden;
   &:before {
     content: " ";
     @apply bg-[#f8c357] w-full h-full;
     @apply absolute top-0 right-0 left-0;
-
+    @apply bg-cover;
     transform: translateZ(-1px) scale(1.6);
-    background-size: 100%;
     z-index: -1;
     background-image: url(https://dav3uwijswi8g.cloudfront.net/become/landing_page/img/lines.svg?v=2.2);
     background-repeat: no-repeat;
@@ -103,9 +102,9 @@
     color: white;
     text-transform: uppercase;
     font-size: 9px;
-    width: 12%;
     float: left;
     position: relative;
+    @apply w-[30px] sm:w-[40px] mx-[10px];
     &:before {
       content: counter(step);
       counter-increment: step;
@@ -124,13 +123,11 @@
       height: 2px;
       background: white;
       position: absolute;
-      left: -50%;
       top: 50%;
-      transform: translateY(-50%);
       z-index: -1; /*put it behind the numbers*/
+      @apply right-[80%];
     }
     &:first-child:after {
-      /*connector not needed before the first step*/
       content: none;
     }
     &.active:before,
@@ -145,9 +142,6 @@
   .checkbox {
     @apply flex items-center;
     @apply cursor-pointer;
-    &:not(:last-child) {
-      // @apply mb-[10px];
-    }
     input {
       @apply w-[25px] mb-0 #{!important};
     }

@@ -1,11 +1,11 @@
 .header {
-  @apply my-[0.5rem] bg-white;
+  @apply h-[50px] sm:h-auto sm:my-[0.5rem] bg-white;
   transition: all 0.3s ease;
   &__wrap {
     @apply flex items-center justify-between;
   }
   .logo {
-    @apply max-w-[8rem];
+    @apply max-w-[6rem];
     transition: all 0.3s ease;
   }
   .nav {
@@ -13,7 +13,7 @@
     &__ul {
       @apply flex flex-col sm:flex-row;
       @apply fixed sm:static bg-[#f4d087] sm:bg-[transparent];
-      @apply w-[50%] min-w-[240px] right-[-100%] top-[76px] h-full z-[99] p-[20px] sm:p-0;
+      @apply w-[50%] min-w-[240px] right-[-100%] top-[50px] h-full z-[99] p-[20px] sm:p-0;
       transition: 0.3s ease all;
     }
     &__li {
@@ -41,14 +41,14 @@
     .hambuger {
       span {
         opacity: 1;
-        transform: rotate(45deg) translate(6px, -10px);
+        transform: rotate(45deg) translate(8px, -6px);
         background: #232323;
         &:nth-child(3) {
           opacity: 0;
           transform: rotate(0deg) scale(0.2, 0.2);
         }
         &:nth-child(2) {
-          transform: rotate(-45deg) translate(1px, 14px);
+          transform: rotate(-45deg) translate(0, 14px);
         }
       }
     }
@@ -57,14 +57,14 @@
     @apply fixed  top-0 m-0 w-full z-[99];
     box-shadow: 0px 3px 4px #0000001a;
     .logo {
-      @apply max-w-[90px] py-[10px];
+      // @apply max-w-[90px] py-[10px];
     }
   }
 }
 .hambuger {
   @apply block sm:hidden ml-auto cursor-pointer;
   span {
-    @apply z-[1] relative bg-black block w-[30px] h-[3px] mb-[5px] rounded-[3px];
+    @apply z-[1] relative bg-black block w-[20px] h-[2px] mb-[3px] rounded-[3px];
     transform-origin: 4px 0px;
     transition:
       transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
