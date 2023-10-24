@@ -844,11 +844,11 @@ video {
 .min-h-\[1\.5rem\] {
   min-height: 1.5rem;
 }
-.min-h-\[130vh\] {
-  min-height: 130vh;
-}
 .min-h-\[35px\] {
   min-height: 35px;
+}
+.min-h-\[800px\] {
+  min-height: 800px;
 }
 .w-0 {
   width: 0px;
@@ -1108,8 +1108,8 @@ video {
 .p-4 {
   padding: 1rem;
 }
-.p-\[15px\] {
-  padding: 15px;
+.p-\[10px\] {
+  padding: 10px;
 }
 .p-\[20px\] {
   padding: 20px;
@@ -1905,7 +1905,7 @@ body {
 
 .refinance {
   position: relative;
-  min-height: 130vh;
+  min-height: 800px;
   overflow: hidden;
 }
 .refinance:before {
@@ -2173,8 +2173,18 @@ body {
 #msform input,
 #msform textarea {
   border-radius: 3px;
-  padding: 15px;
+  padding: 10px;
   font-size: 14px;
+}
+@media (min-width: 640px) {
+
+  #msform input,
+#msform textarea {
+    padding: 15px;
+  }
+}
+#msform input,
+#msform textarea {
   border: 1px solid #ccc;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2949,6 +2959,10 @@ body {
 
   .sm\:bg-\[transparent\] {
     background-color: transparent;
+  }
+
+  .sm\:p-\[15px\] {
+    padding: 15px;
   }
 
   .sm\:text-\[40px\] {

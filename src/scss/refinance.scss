@@ -1,5 +1,5 @@
 .refinance {
-  @apply relative min-h-[130vh] overflow-hidden;
+  @apply relative min-h-[800px] overflow-hidden;
   &:before {
     content: " ";
     @apply bg-[#f8c357] w-full h-full;
@@ -56,7 +56,7 @@
   /*inputs*/
   input,
   textarea {
-    @apply p-[15px] rounded-[3px] text-[14px];
+    @apply p-[10px] sm:p-[15px] rounded-[3px] text-[14px];
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
