@@ -161,7 +161,8 @@
 }
 .step-3 {
   overflow-y: auto;
-  max-height: 560px;
+  // max-height: 560px;
+  max-height: 63vh !important;
 }
 
 // Base Colors
