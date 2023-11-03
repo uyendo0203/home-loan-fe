@@ -3,7 +3,10 @@
 {% extends "../components/base.twig" %}
 
 {% block content %}
-<div class="wrapper-refinance">
-  {% include "../components/refinance.twig" %}
-</div>
+<main class="wapper-main refinance-page">
+    {% include "../components/header.twig" %}
+    <div class="wrapper-refinance">
+      {% include "../components/refinance.twig" %}
+    </div>
+</main>
 {% endblock %}

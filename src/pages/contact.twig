@@ -4,7 +4,11 @@
 {% extends "../components/base.twig" %}
 
 {% block content %}
-<div class="wrapper-contact">
-  {% include "../components/contact.twig" %}
-</div>
+
+<main class="wapper-main">
+    {% include "../components/header.twig" %}
+    <div class="wrapper-contact">
+      {% include "../components/contact.twig" %}
+    </div>
+</main>
 {% endblock %}

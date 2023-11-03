@@ -1,3 +1,12 @@
+.refinance-page {
+  .header {
+    @apply sm:transition-none;
+  }
+  .fixed-header {
+    @apply sm:relative #{!important};
+  }
+}
+
 .refinance {
   @apply relative min-h-[800px] overflow-hidden;
   &:before {
